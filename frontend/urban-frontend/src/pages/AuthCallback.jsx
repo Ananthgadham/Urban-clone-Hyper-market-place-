@@ -8,7 +8,7 @@ function AuthCallback() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/auth/me", { withCredentials: true })
+      .get("https://urbanfrontend.onrender.com/api/auth/me", { withCredentials: true })
       .then((res) => {
         // ✅ User session exists
         navigate("/dashboard");
