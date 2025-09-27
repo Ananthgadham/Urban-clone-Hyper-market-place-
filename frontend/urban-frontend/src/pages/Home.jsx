@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/services")
+      .get("https://urbanfrontend.onrender.com/api/services")
       .then((res) => setServices(res.data))
       .catch((err) => console.error("Service fetch error:", err));
 
