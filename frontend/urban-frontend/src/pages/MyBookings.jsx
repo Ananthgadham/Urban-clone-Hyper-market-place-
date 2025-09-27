@@ -9,7 +9,7 @@ function MyBookings() {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get("http://localhost:5555/api/bookings/my", {
+      const res = await axios.get("https://urbanfrontend.onrender.com/api/bookings/my", {
         withCredentials: true,
       });
       setBookings(res.data);
@@ -26,7 +26,7 @@ function MyBookings() {
   const handleCancel = async (bookingId) => {
     try {
       await axios.put(
-        `http://localhost:5555/api/bookings/cancel/${bookingId}`,
+        `https://urbanfrontend.onrender.com/api/bookings/cancel/${bookingId}`,
         {},
         { withCredentials: true }
       );
@@ -42,7 +42,7 @@ function MyBookings() {
   const handleReviewSubmit = async () => {
     try {
       await axios.post(
-        `http://localhost:5555/api/reviews/${reviewData.bookingId}`,
+        `https://urbanfrontend.onrender.com/api/reviews/${reviewData.bookingId}`,
         {
           rating: reviewData.rating,
           comment: reviewData.comment,
