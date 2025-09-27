@@ -111,7 +111,7 @@ function Login() {
   // ✅ Auto-redirect if already authenticated (Google or manual)
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/auth/me", { withCredentials: true })
+      .get("https://urbanfrontend.onrender.com/api/auth/me", { withCredentials: true })
       .then(() => {
         navigate("/dashboard");
       })
@@ -128,7 +128,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5555/api/auth/login", form, {
+      await axios.post("https://urbanfrontend.onrender.com/api/auth/login", form, {
         withCredentials: true,
       });
       setSuccessMessage("Login successful! Redirecting...");
@@ -143,7 +143,7 @@ function Login() {
 
   // ✅ Start Google OAuth
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5555/api/auth/google";
+    window.location.href = "https://urbanfrontend.onrender.com/api/auth/google";
   };
 
   return (
