@@ -9,7 +9,7 @@ function UserBookings() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/bookings/my", {
+      .get("https://urbanfrontend.onrender.com/api/bookings/my", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
