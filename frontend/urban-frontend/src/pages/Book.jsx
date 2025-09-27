@@ -17,7 +17,7 @@ function Book() {
   // Check auth via cookie & load providers
   useEffect(() => {
     axios
-      .get("http://localhost:5555/api/auth/me", { withCredentials: true })
+      .get("https://urbanfrontend.onrender.com/api/auth/me", { withCredentials: true })
       .then(() => {
         const storedService = localStorage.getItem("selectedService");
         if (!storedService) return navigate("/dashboard");
@@ -26,7 +26,7 @@ function Book() {
         setService(parsedService);
 
         axios
-          .get(`http://localhost:5555/api/providers/by-service/${parsedService._id}`, {
+          .get(`https://urbanfrontend.onrender.com/api/providers/by-service/${parsedService._id}`, {
             withCredentials: true,
           })
           .then((res) => setProviders(res.data))
@@ -48,7 +48,7 @@ function Book() {
 
     try {
       const res = await axios.post(
-        `http://localhost:5555/api/bookings/create/${service._id}/${selectedProvider}`,
+        `https://urbanfrontend.onrender.com/api/bookings/create/${service._id}/${selectedProvider}`,
         { bookingDate, address, payNow },
         { withCredentials: true }
       );
