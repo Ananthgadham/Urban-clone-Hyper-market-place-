@@ -5,7 +5,7 @@ function MyProfile() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5555/api/users/me", { withCredentials: true })
+    axios.get("https://urbanfrontend.onrender.com/api/users/me", { withCredentials: true })
       .then(res => setUser(res.data))
       .catch(err => console.error("Error fetching profile", err));
   }, []);
