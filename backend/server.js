@@ -20,7 +20,7 @@ const app = express();
 
 // ✅ CORS – must be first!
 app.use(cors({
-  origin: 'http://localhost:5173',  // frontend
+  origin: 'https://urbanfrontend.onrender.com',  // frontend
   credentials: true,
 }));
 
