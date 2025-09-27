@@ -13,7 +13,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5555/api/auth/register", form);
+      await axios.post("https://urbanfrontend.onrender.com/api/auth/register", form);
       alert("Signup successful! Please login.");
       navigate("/login");
     } catch (err) {
