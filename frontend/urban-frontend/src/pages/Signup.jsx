@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const API = "https://urbanfrontend.onrender.com"; // ✅ backend URL
+axios.defaults.withCredentials = true;
+
 function Signup() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
@@ -12,8 +15,9 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      await axios.post("http://localhost:5555/api/auth/register", form);
+      await axios.post(`${API}/api/auth/register`, form);
       alert("Signup successful! Please login.");
       navigate("/login");
     } catch (err) {
@@ -30,10 +34,14 @@ function Signup() {
             alt="Urban Company Logo"
             className="mx-auto w-16 h-16"
           />
-          <h2 className="text-2xl font-bold mt-4 text-gray-700">User Signup</h2>
+
+          <h2 className="text-2xl font-bold mt-4 text-gray-700">
+            User Signup
+          </h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+
           <input
             type="text"
             name="name"
@@ -43,6 +51,7 @@ function Signup() {
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
             required
           />
+
           <input
             type="email"
             name="email"
@@ -52,6 +61,7 @@ function Signup() {
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
             required
           />
+
           <input
             type="password"
             name="password"
@@ -61,12 +71,14 @@ function Signup() {
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
             required
           />
+
           <button
             type="submit"
             className="w-full bg-purple-600 text-white py-3 rounded-md font-semibold hover:bg-purple-700 transition"
           >
             Sign Up
           </button>
+
         </form>
 
         <p className="mt-4 text-sm text-center text-gray-600">
