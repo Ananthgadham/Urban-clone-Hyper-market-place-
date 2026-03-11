@@ -28,7 +28,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",                 // user frontend local
     "http://localhost:5174",                 // admin frontend local
-    "https://fronted-urban.onrender.co",    // deployed user frontend
+    "https://fronted-urban.onrender.com",    // deployed user frontend
     "https://admin-urban.onrender.com"       // deployed admin panel
   ],
   credentials: true,
