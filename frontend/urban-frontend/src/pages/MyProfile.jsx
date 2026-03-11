@@ -34,7 +34,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API = "https://urbanfrontend.onrender.com"; // ✅ backend URL
+const API = "https://urban-backend-hiv3.onrender.com";
 axios.defaults.withCredentials = true;
 
 function MyProfile() {

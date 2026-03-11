@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://urbanfrontend.onrender.com"; // ✅ backend URL
+// ✅ Correct backend URL
+const API = "https://urban-backend-hiv3.onrender.com";
 
-axios.defaults.withCredentials = true; // ✅ always send cookies
+// ✅ Always send cookies
+axios.defaults.withCredentials = true;
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -20,7 +22,7 @@ function Login() {
         navigate("/dashboard");
       })
       .catch(() => {});
-  }, []);
+  }, [navigate]);
 
   // ✅ Handle input changes
   const handleChange = (e) =>

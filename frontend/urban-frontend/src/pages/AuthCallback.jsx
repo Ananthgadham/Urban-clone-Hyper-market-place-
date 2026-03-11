@@ -34,9 +34,11 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://urbanfrontend.onrender.com"; // ✅ your backend URL
+// ✅ Correct backend URL
+const API = "https://urban-backend-hiv3.onrender.com";
 
-axios.defaults.withCredentials = true; // ✅ send cookies
+// ✅ Always send cookies
+axios.defaults.withCredentials = true;
 
 function AuthCallback() {
   const navigate = useNavigate();
@@ -45,14 +47,14 @@ function AuthCallback() {
     axios
       .get(`${API}/api/auth/me`)
       .then(() => {
-        // ✅ User session exists
+        // ✅ User session exists, redirect to dashboard
         navigate("/dashboard");
       })
       .catch(() => {
-        // ❌ Not logged in
+        // ❌ Not logged in, redirect to login
         navigate("/login");
       });
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center text-lg font-semibold text-gray-700">

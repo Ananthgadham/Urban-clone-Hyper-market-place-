@@ -166,8 +166,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://urbanfrontend.onrender.com"; // ✅ backend URL
-axios.defaults.withCredentials = true; // ✅ always send cookies
+// ✅ Correct backend URL
+const API = "https://urban-backend-hiv3.onrender.com";
+
+// ✅ Always send cookies
+axios.defaults.withCredentials = true;
 
 function Book() {
   const navigate = useNavigate();
@@ -179,7 +182,7 @@ function Book() {
   const [time, setTime] = useState("");
   const [error, setError] = useState("");
 
-  // Check auth via cookie & load providers
+  // ✅ Check auth via cookie & load providers
   useEffect(() => {
     axios
       .get(`${API}/api/auth/me`)
@@ -199,7 +202,7 @@ function Book() {
           });
       })
       .catch(() => navigate("/login"));
-  }, []);
+  }, [navigate]);
 
   const handleBooking = async (payNow = false) => {
     if (!selectedProvider || !address || !date || !time) {

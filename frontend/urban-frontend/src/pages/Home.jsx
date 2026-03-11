@@ -139,7 +139,10 @@ import Footer from "../components/Footer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const API = "https://urbanfrontend.onrender.com"; // ✅ backend URL
+// ✅ Correct backend URL
+const API = "https://urban-backend-hiv3.onrender.com";
+
+// ✅ Always send cookies
 axios.defaults.withCredentials = true;
 
 function Home() {
@@ -148,11 +151,13 @@ function Home() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+    // Fetch services
     axios
       .get(`${API}/api/services`)
       .then((res) => setServices(res.data))
       .catch((err) => console.error("Service fetch error:", err));
 
+    // Fetch reviews
     axios
       .get(`${API}/api/reviews`)
       .then((res) => setReviews(res.data))
